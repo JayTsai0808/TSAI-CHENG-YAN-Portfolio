@@ -20,11 +20,117 @@ a {
   text-decoration: none;
 }
 
+/* =========================
+   Hero / Homepage
+========================= */
+
 .hero {
   min-height: 100vh;
   background: linear-gradient(135deg, #111827, #1f2937);
   color: white;
 }
+
+.interactive-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.cursor-glow {
+  position: absolute;
+  width: 315px;
+  height: 315px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.34),
+    rgba(37, 99, 235, 0.13),
+    transparent 70%
+  );
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  left: var(--mouse-x, 50%);
+  top: var(--mouse-y, 50%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.interactive-hero:hover .cursor-glow {
+  opacity: 1;
+}
+
+.hero-content,
+.navbar {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 110px 24px;
+}
+
+.hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) 360px;
+  gap: 56px;
+  align-items: center;
+}
+
+.hero-text {
+  min-width: 0;
+}
+
+.tag {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #93c5fd;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.hero h1 {
+  max-width: 850px;
+  font-size: 60px;
+  line-height: 1.05;
+  margin-bottom: 20px;
+}
+
+.hero h2 {
+  max-width: 1200px;
+  font-size: 24px;
+  font-weight: 400;
+  color: #d1d5db;
+  margin-bottom: 28px;
+}
+
+.intro {
+  max-width: 980px;
+  font-size: 18px;
+  color: #e5e7eb;
+  margin-bottom: 36px;
+}
+
+.hero-photo-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-photo {
+  width: 330px;
+  height: 430px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 28px;
+  border: 1px solid rgba(209, 213, 219, 0.22);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+
+/* =========================
+   Navigation
+========================= */
 
 .page-header {
   background: #111827;
@@ -59,65 +165,16 @@ a {
   color: white;
 }
 
-.hero-content {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 110px 24px;
-}
-
-.tag {
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: #93c5fd;
-  font-size: 14px;
+.nav-links a.active {
+  color: #ffffff;
   font-weight: 700;
-  margin-bottom: 18px;
+  border-bottom: 2px solid #2563eb;
+  padding-bottom: 4px;
 }
 
-.hero h1 {
-  max-width: 850px;
-  font-size: 60px;
-  line-height: 1.05;
-  margin-bottom: 20px;
-}
-
-.hero h2 {
-  max-width: 850px;
-  font-size: 24px;
-  font-weight: 400;
-  color: #d1d5db;
-  margin-bottom: 28px;
-}
-
-.intro {
-  max-width: 760px;
-  font-size: 18px;
-  color: #e5e7eb;
-  margin-bottom: 36px;
-}
-
-.buttons {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.btn {
-  display: inline-block;
-  padding: 12px 20px;
-  border-radius: 8px;
-  font-weight: 700;
-}
-
-.btn.primary {
-  background: #2563eb;
-  color: white;
-}
-
-.btn.secondary {
-  border: 1px solid #9ca3af;
-  color: white;
-}
+/* =========================
+   General Sections
+========================= */
 
 .section {
   max-width: 1100px;
@@ -137,10 +194,26 @@ a {
   color: #111827;
 }
 
-.section p {
+.section > p {
   font-size: 17px;
   color: #4b5563;
+  margin-bottom: 24px;
 }
+
+.section > p + p {
+  margin-top: 18px;
+}
+
+.page-intro {
+  max-width: 1000px;
+  margin-bottom: 40px;
+  font-size: 18px;
+  color: #4b5563;
+}
+
+/* =========================
+   Cards / Grids
+========================= */
 
 .card,
 .project-card,
@@ -184,31 +257,39 @@ li {
   gap: 24px;
 }
 
-.contact a {
-  color: #2563eb;
-  font-weight: 700;
+/* =========================
+   About Page
+========================= */
+
+.about-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 56px;
+  align-items: start;
 }
 
-footer {
-  background: #111827;
-  color: #d1d5db;
-  text-align: center;
-  padding: 32px 24px;
+.about-text {
+  min-width: 0;
 }
 
-.nav-links a.active {
-  color: #ffffff;
-  font-weight: 700;
-  border-bottom: 2px solid #2563eb;
-  padding-bottom: 4px;
+.about-photo-wrap {
+  display: flex;
+  justify-content: center;
 }
 
-.page-intro {
-  max-width: 850px;
-  margin-bottom: 40px;
-  font-size: 18px;
-  color: #4b5563;
+.about-photo {
+  width: 300px;
+  height: 380px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 24px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.08);
 }
+
+/* =========================
+   Education Page
+========================= */
 
 .timeline {
   position: relative;
@@ -237,15 +318,54 @@ footer {
   background: white;
   border: 1px solid #e5e7eb;
   border-radius: 14px;
-  padding: 28px;
+  padding: 32px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
 }
 
 .education-header {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   gap: 24px;
-  margin-bottom: 12px;
+  margin-bottom: 20px;
+}
+
+.education-title-group {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  min-width: 0;
+}
+
+
+
+.school-logo-box {
+  width: 86px;
+  height: 86px;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  flex-shrink: 0;
+}
+
+.school-logo {
+  max-width: 68px;
+  max-height: 68px;
+  object-fit: contain;
+  display: block;
+}
+
+.mcgill-logo {
+  max-width: 72px;
+  max-height: 50px;
+}
+
+.ntnu-logo {
+  max-width: 62px;
+  max-height: 62px;
 }
 
 .education-card h2 {
@@ -260,19 +380,36 @@ footer {
   margin-bottom: 16px;
 }
 
-.education-location,
-.education-date {
+.education-card p {
+  color: #4b5563;
+}
+
+.education-location {
   color: #6b7280;
   font-size: 15px;
 }
 
 .education-date {
   white-space: nowrap;
+  color: #6b7280;
+  font-size: 15px;
   font-weight: 700;
+  margin-top: 8px;
+}
+
+.education-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 24px;
+}
+
+.education-detail-grid.single-column {
+  grid-template-columns: 1fr;
 }
 
 .course-section {
-  margin-top: 22px;
+  margin-top: 0;
 }
 
 .course-section h4 {
@@ -305,6 +442,73 @@ footer {
   border-radius: 999px;
 }
 
+/* =========================
+   Contact
+========================= */
+
+.contact a {
+  color: #2563eb;
+  font-weight: 700;
+}
+
+/* =========================
+   Footer
+========================= */
+
+footer {
+  background: #111827;
+  color: #d1d5db;
+  text-align: center;
+  padding: 32px 24px;
+}
+
+/* =========================
+   Interaction
+========================= */
+
+.card,
+.project-card,
+.skill-box,
+.education-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.card:hover,
+.project-card:hover,
+.skill-box:hover,
+.education-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(37, 99, 235, 0.35);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.08);
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 700;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.btn.primary {
+  background: #2563eb;
+  color: white;
+}
+
+.btn.secondary {
+  border: 1px solid #9ca3af;
+  color: white;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(37, 99, 235, 0.22);
+}
+
+/* =========================
+   Responsive Design
+========================= */
+
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
@@ -321,6 +525,11 @@ footer {
     padding: 80px 24px;
   }
 
+  .hero-layout,
+  .about-layout {
+    grid-template-columns: 1fr;
+  }
+
   .hero h1 {
     font-size: 42px;
   }
@@ -329,21 +538,79 @@ footer {
     font-size: 20px;
   }
 
+  .hero-photo {
+    width: 260px;
+    height: 340px;
+  }
+
+  .about-photo {
+    width: 260px;
+    height: 330px;
+  }
+
+  .hero-photo-wrap,
+  .about-photo-wrap {
+    justify-content: flex-start;
+  }
+
   .project-grid,
   .skills-grid {
     grid-template-columns: 1fr;
   }
 
+  .timeline-item {
+    grid-template-columns: 20px 1fr;
+  }
+
   .education-header {
-  flex-direction: column;
-  gap: 8px;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .education-title-group {
+    align-items: center;
+  }
+
+  .school-logo-box {
+    width: 72px;
+    height: 72px;
+  }
+
+  .school-logo {
+    max-width: 56px;
+    max-height: 56px;
+  }
+
+  .education-date {
+    white-space: normal;
+    margin-top: 0;
+  }
+
+  .education-detail-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 }
 
-.education-date {
-  white-space: normal;
-}
+/* =========================
+   Reduced Motion
+========================= */
 
-.timeline-item {
-  grid-template-columns: 20px 1fr;
-}
+@media (prefers-reduced-motion: reduce) {
+  .cursor-glow,
+  .card,
+  .project-card,
+  .skill-box,
+  .education-card,
+  .btn {
+    transition: none;
+  }
+
+  .card:hover,
+  .project-card:hover,
+  .skill-box:hover,
+  .education-card:hover,
+  .btn:hover {
+    transform: none;
+  }
 }
