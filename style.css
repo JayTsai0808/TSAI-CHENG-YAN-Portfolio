@@ -13,6 +13,13 @@ body {
   background: #f5f7fa;
   color: #1f2937;
   line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
 }
 
 a {
@@ -242,6 +249,22 @@ a {
   margin-bottom: 14px;
 }
 
+.role-block {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.role-block:first-of-type {
+  margin-top: 18px;
+}
+
+.role-block h4 {
+  font-size: 18px;
+  color: #111827;
+  margin-bottom: 4px;
+}
+
 ul {
   padding-left: 20px;
 }
@@ -261,7 +284,31 @@ li {
    About Page
 ========================= */
 
-.about-layout {
+.about-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 24px;
+  padding: 48px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.06);
+}
+
+.about-heading {
+  margin-bottom: 28px;
+}
+
+.about-tag {
+  margin-bottom: 12px;
+}
+
+.about-card .page-title {
+  font-size: 32px;
+  line-height: 1.2;
+  margin-bottom: 0;
+  max-width: 900px;
+  white-space: normal;
+}
+
+.about-body {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 320px;
   gap: 56px;
@@ -272,9 +319,32 @@ li {
   min-width: 0;
 }
 
+.about-card p {
+  font-size: 17px;
+  color: #4b5563;
+  margin-bottom: 18px;
+}
+
+.about-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 26px;
+}
+
+.about-tags span {
+  background: #eef4ff;
+  color: #2563eb;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 7px 10px;
+  border-radius: 999px;
+}
+
 .about-photo-wrap {
   display: flex;
   justify-content: center;
+  align-items: flex-start;
 }
 
 .about-photo {
@@ -337,7 +407,19 @@ li {
   min-width: 0;
 }
 
+.school-link {
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
 
+.school-link:hover {
+  transform: translateY(-2px);
+}
+
+.school-link:hover h2 {
+  color: #2563eb;
+}
 
 .school-logo-box {
   width: 86px;
@@ -502,7 +584,7 @@ footer {
 
 .btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 24px rgba(37, 99, 235, 0.22);
+  box-shadow: 0 12px 24px #2563eb38;
 }
 
 /* =========================
@@ -526,7 +608,7 @@ footer {
   }
 
   .hero-layout,
-  .about-layout {
+  .about-body {
     grid-template-columns: 1fr;
   }
 
@@ -541,6 +623,15 @@ footer {
   .hero-photo {
     width: 260px;
     height: 340px;
+  }
+
+  .about-card {
+    padding: 28px;
+  }
+
+  .about-card .page-title {
+    font-size: 28px;
+    white-space: normal;
   }
 
   .about-photo {
